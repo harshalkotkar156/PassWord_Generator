@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="main.css">
+    <title>PasswordGenerator</title>
+
+    
+</head>
+<body class="bg-[#001F3F] flex justify-center items-center h-screen w-full">
+
+    
+
+
+        <div class=" bg-[#3A6D8C] w-[400px] h-[600px] flex flex-col items-center justify-around rounded-md border-b-4 border-b-gray-500">
+
+            <h2 class="text-[#EAD8B1] font-extrabold text-2xl">
+                PASSWORD GENERATOR
+            </h2>
+
+            <!-- generated password -->
+            <div class="border rounded-md flex bg-[#6A9AB0] h-14 w-[80%] justify-between items-center ">
+                <p id="password" class="max-w-[50px] text-xl font-medium text-white"></p>
+                <button onclick="copyToClipboard(); alert('Copied!') "><i class="fa-regular fa-copy bg-gray-50 mr-4 h-8 w-8 flex justify-center items-center scale-125 rounded-md hover:bg-slate-300 transition-all duration-200 ml-[140px]"></i></button>
+            </div>
+
+            <!-- password length -->
+            <div class="border rounded-md h-14 w-[80%] flex justify-around bg-[#6A9AB0] items-center">
+                <div class="text-white font-semibold text-xl ">Password Length</div>
+
+
+                <div id="len" class="bg-slate-50  h-8 w-8 border rounded-md flex justify-center items-center font-semibold -mr-4  text-xl">5</div>
+            </div>
+
+            <!-- input tag slider -->
+            <div class="bg-[#6A9AB0] h-14 w-[80%] border rounded-md flex justify-center">
+            
+                <input id="slider" type="range" min="5" value="5" max="15" oninput="updateValue(value);"  class="border-gray-300 focus:border-blue-400 bg-slate-50 h-14 w-[250px] hover:scale-110 transition-all duration-200">
+            
+            </div>
+            <!-- input boxes what to include -->
+
+            <div class="h-44 bg-[#6A9AB0] w-[80%] flex flex-col justify-around border rounded-md">
+                
+                <div class="flex h-9 items-center w-[90%] bg-slate-50 rounded-r-md">
+
+
+                    <input class="ml-2" type="checkbox" name="" id="Uchars">
+                    
+                    <label class="text-lg font-semibold ml-2" for="Uchars">Include Uppercase letters</label>
+                </div>
+
+
+                <div class="flex h-9 items-center w-[90%] bg-slate-50 rounded-r-md">
+                    <input class="ml-2" type="checkbox" name="" id="Lchars">
+
+                 <label class="text-lg font-semibold ml-2" for="Lchars">Include Lowercase letters</label>
+
+                </div>
+
+
+                <div class="flex h-9 items-center w-[90%] bg-slate-50 rounded-r-md">
+                    <input class="ml-2" type="checkbox" name="" id="sym">
+
+                    <label class="text-lg font-semibold ml-2" for="sym">Include 
+                        Symbols</label>
+                </div>
+                
+                
+                
+                <div class="flex h-9 items-center w-[90%] bg-slate-50 rounded-r-md">
+                    <input class="ml-2" type="checkbox" name="" id="nums">
+
+                    <label class="text-lg font-semibold ml-2" for="nums">Include Number</label>
+
+                </div>
+
+            </div>
+
+            <!-- showing strength -->
+            <div class="flex justify-between h-14 w-[80%] bg-[#6A9AB0] items-center border rounded-md ">
+                <h4 class="ml-2 font-semibold text-xl text-white">
+                    Strength
+                </h4>
+                 <div id="strength" class="mr-5 h-8 w-8 rounded-[50%] bg-slate-500 "></div>
+
+            </div>
+
+            <button onclick="generatePass();" class="h-14 w-[80%] bg-[#6A9AB0] font-bold text-2xl rounded-md hover:bg-sky-700 hover:text-[#EAD8B1] transition-all duration-200">
+                Generate Password
+            </button>
+
+        </div>
+
+
+  
+
+    <script src="index.js">
+
+    </script>
+</body>
+</html>
+<!-- npx tailwindcss -i ./input.css -o ./style2.css --watch -->
